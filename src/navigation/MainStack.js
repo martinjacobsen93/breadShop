@@ -17,9 +17,6 @@ const MainStack = () => {
                     backgroundColor: Platform.OS === 'android' ? colors.secondaryColor : ''
                 },
                 headerTintColor: Platform.OS === 'android' ? 'white' : 'colors.textColor',
-                // headerTitleStyle: {
-                //     fontFamily: 'OpenSans-Bold'
-                // }
             }}
         >
             <Stack.Screen name='Home' component={ Home } 
@@ -29,9 +26,11 @@ const MainStack = () => {
             />
             <Stack.Screen name='Category' 
                 component={ Category }
-                options={({route})=> ({title: route.params.title})}
+                options={({route})=> ({title: route.params.name})}
             />
-            <Stack.Screen name='ProductDetail' component={ ProductDetail }/>
+            <Stack.Screen name='Product' 
+                component={ ProductDetail }
+                options={({route}) => ({title: route.params.name})}/>
         </Stack.Navigator>
     )
 }

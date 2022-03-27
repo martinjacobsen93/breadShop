@@ -1,14 +1,13 @@
-import { View, FlatList } from 'react-native'
 import React from 'react'
+import { View, FlatList } from 'react-native'
 import { styles } from './styles'
 import { CATEGORIES } from '../../constants/categories'
 import CategoryGrid from '../../components/molecules/CategoryGrid'
-import { colors } from '../../constants/themes' 
 
 const Home = ({ navigation }) => {
 
     const handleSelectCategory = (category) => {
-        navigation.navigate('Category', {id: category.id, title: category.name})
+        navigation.navigate('Category', {id: category.id, name: category.name})
     }
 
     const renderItem = ({item}) => {

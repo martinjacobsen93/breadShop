@@ -19,13 +19,21 @@ export const styles = StyleSheet.create({
 
         elevation: 3,
     },
-    title: {
-        fontFamily: 'OpenSans-Bold',
-        fontSize: 18,
-    },
-    titleContainer: {
+    detailsContainer: {
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
+    },
+    title: {
+        fontFamily: 'OpenSans-Regular',
+        fontSize: 16,
+    },
+    description: {
+        fontFamily: 'OpenSans-Regular',
+        fontSize: 16,
+    },
+    price: {
+        fontFamily: 'OpenSans-Bold',
+        fontSize: 18,
     }
 })

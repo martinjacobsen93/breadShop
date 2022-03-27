@@ -1,13 +1,30 @@
-import { Text, View, Button } from 'react-native'
+import { View, FlatList } from 'react-native'
 import React from 'react'
 import { styles } from './styles'
+// import { CATEGORIES } from '../../constants/categories'
+import { PRODUCTS } from '../../constants/products'
+import CategoryProduct from '../../components/molecules/CategoryProduct'
 
-const Category = ({navigation}) => {
+const Category = ({navigation, route}) => {
+
+  const { id } = route.params;
+
+  const selectedCategoryItems = PRODUCTS.filter(categoryItem => categoryItem.category === id);
+
+  const handleSelectedProduct = ({product}) => {
+    navigation.navigate('Product', {product, name: product.name})
+  }
+
+  const renderItem = ({item}) => <CategoryProduct item={item} onSelectedBread={handleSelectedProduct}/>
 
     return (
       <View style={styles.container}>
-        <Text style={styles.title}>Categoria</Text>
-        <Button title='Ir a detalle de Producto' onPress={()=> navigation.navigate('ProductDetail')}/>
+        <FlatList
+          data={selectedCategoryItems}
+          renderItem={renderItem}
+          keyExtractor={item => item.id}>
+
+        </FlatList>
       </View>
     )
 }
