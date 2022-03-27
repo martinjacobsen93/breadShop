@@ -28,7 +28,7 @@ const MainStack = () => {
                 component={ Category }
                 options={({route})=> ({title: route.params.name})}
             />
-            <Stack.Screen name='Product' 
+            <Stack.Screen name='ProductDetail' 
                 component={ ProductDetail }
                 options={({route}) => ({title: route.params.name})}/>
         </Stack.Navigator>
